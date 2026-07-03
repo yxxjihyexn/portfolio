@@ -1,0 +1,244 @@
+/* 공통 css */
+:root {
+    --color-orange-200: #F9F6F0;
+    --color-orange-300: #FAEBD7;
+    --color-orange-400: #FCD7B8;
+    --color-orange-500: #FDC199;
+    --color-orange-600: #FFAA80;
+    --color-orange-700: #FF6B35;
+    --color-orange-800: #FF5100;
+    --color-orange-900: #FF3E00;
+
+    --color-navy-500: #2C4067;
+    --color-navy-700: #111E38;
+    --color-navy-800: #162038;
+    --color-navy-900: #0A1128;
+
+    --color-gray: #888888;
+    --color-lightgray: #E0E0E0;
+
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+
+    --gradient-bg-start: rgba(255, 255, 255, 0);
+    --gradient-bg-end: #F7F7F8;
+
+    --gradient-bg-primary: linear-gradient(
+        180deg,
+        var(--gradient-bg-start) 0%,
+        var(--gradient-bg-end) 100%
+    );
+
+    --color-red: #E20000;
+    --color-yellow: #F9BA1B;
+    --color-lightbrown: #C77521;
+
+    --color-transparent-20: rgba(255, 255, 255, 0.2);
+    --color-transparent-50: rgba(255, 255, 255, 0.5);
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color : var(--color-orange-200);
+    min-width: 360px;
+}
+
+/* #wrap {
+    min-width: 360px;
+} */
+
+/* header */
+header {
+    position: static;
+    width: 100%;
+    padding: 0 20px;
+    top: 0;
+    left: 0;
+}
+.inner {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.h-in {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: clamp(60px, 4.2vw, 80px);
+}
+h1 {
+    width: 108px;
+    height: 100%;
+}
+.logo > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+.logo > a > img {
+    width: 51px;
+    height: 44px;
+}
+.logo-txt {
+    display: block;
+    white-space: nowrap;
+    font-family: "Bangers", system-ui;
+    font-size: 1.125rem;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    color: var(--color-orange-800);
+}
+.gnb {
+    display: block;
+}
+.gnb ul {
+    display: flex;
+    gap: 40px;
+}
+.gnb li {
+    font-size: 1.625rem;
+    font-family: "Bangers", system-ui;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    padding: 10px 8px;
+}
+.gnb li a:hover {
+    color: var(--color-orange-800);
+    transition: 0.3s;
+}
+.mo-nav {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    header {
+        padding: 0 16px;
+    }
+    .gnb ul {
+        gap: 1.25rem;
+    }
+    .gnb li {
+    font-size: 1.375rem;
+    padding: 10px 8px;
+    }
+}
+
+@media (max-width: 767px) {
+    .logo > a > img {
+        width: 46px;
+        height: 39px;
+    }
+    .logo-txt {
+        font-size: 14px;
+    }
+    .gnb ul {
+        gap: 0.625rem;
+    }
+    .gnb li {
+    font-size: 1rem;
+    padding: 10px 8px;
+    }
+}
+
+@media (max-width: 528px) {
+    .gnb {
+        display: none;
+    }
+    .mo-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: block;
+        background-color: red;
+    }
+    .mo-nav ul li{
+        display: inline-block;
+        font-family: "Bangers", system-ui;
+        line-height: 1;
+        letter-spacing: 0.05em;
+        padding: 10px 8px;
+    }
+    
+}
+
+/* hero-sec */
+.hero-sec {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.hero-sec .caractor01,
+.hero-sec .caractor02 {
+    position: absolute;
+    width: clamp(50px, 10.2vw, 196px);
+    z-index: 3;
+}
+.hero-sec .caractor01 {
+    top: 59%;
+    left: 50%;
+    transform: translateX(-281%);
+}
+.hero-sec .caractor02 {
+    top: 28%;
+    left: 62.5%;
+    transform: scaleX(-1) translate(36%);
+}
+.hero-txt {
+    z-index: 2;
+}
+.hero-txt p {
+    font-size: clamp(100px, 17.2vw, 330px);
+    font-family: "Bangers", system-ui;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: var(--color-orange-800);
+}
+.hero-txt .outline {
+    color: transparent;
+    -webkit-text-stroke: clamp(1px, 0.25vw, 5px) var(--color-orange-800);
+}
+.hero-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 33%;
+    z-index: 4;
+}
+.hero-bg01 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+}
+.hero-bg02 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+}
+
+ 
+/* @media (max-width: 800px) {
+
+    .gnb {
+        display: none;
+    }
+
+    .mo-nav {
+        display: block;
+        position: relative;
+    }
+} */
