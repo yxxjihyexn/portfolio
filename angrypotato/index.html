@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>angry potato </title>
+
+    <link rel="stylesheet" href="../css/default.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="wrap">
+        <!-- header -->
+        <header>
+            <div class="h-in">
+                <h1 class="logo">
+                    <a href="index.html">
+                        <img src="img/angrypotato_caractor04.webp" alt="">
+                        <span class="logo-txt">ANGRY POTATO</span>
+                    </a>
+                </h1>
+                <nav class="gnb">
+                    <h2 class="sr-only">메인 메뉴</h2>
+                    <ul>
+                        <li class="active"><a href="#">OUR STORY</a></li>
+                        <li class="active"><a href="#">WHY US?</a></li>
+                        <li class="active"><a href="#">SIGNATURES</a></li>
+                        <li class="active"><a href="#">GLOBAL GROWTH</a></li>
+                    </ul>
+                </nav>
+                <!-- 모바일 메뉴 -->
+                <div class="mo-nav">
+                    <button class="menu-btn" aria-label="메뉴 열기">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul>
+                        <li><a href="#story">OUR STORY</a></li>
+                        <li><a href="#why">WHY US?</a></li>
+                        <li><a href="#signature">SIGNATURES</a></li>
+                        <li><a href="#global">GLOBAL GROWTH</a></li>
+                    </ul>                    
+                </div>
+            </div>
+        </header>
+        <script>
+            const menuBtn = document.querySelector(".menu-btn");
+            const menu = document.querySelector(".mo-nav-box");
+
+            menuBtn.addEventListener("click", () => {
+                menu.classList.toggle("is-open");
+            });
+                    </script>
+        <main>
+            <!-- hero-sec -->
+            <section class="hero-sec">
+                <div class="hero-txt">
+                    <p>ANGRY POTATO</p>
+                    <p class="outline">ANGRY POTATO</p>
+                    <p>ANGRY POTATO</p>
+                </div>
+                <img class="hero-img" src="img/sec1-img.png" alt="">
+                <img class="hero-bg01" src="img/angrypotato_bg003.webp" alt="">
+                <img class="hero-bg02" src="img/angrypotato_bg004.webp" alt="">
+                <img class="caractor01" src="img/angrypotato_caractor04.webp" alt="">
+                <img class="caractor02" src="img/angrypotato_caractor04.webp" alt="">
+            </section>
+        </main>
+    </div>
+</body>
+</html>
