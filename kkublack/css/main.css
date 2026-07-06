@@ -316,6 +316,15 @@ nav a:hover {
     padding-top: 120px;
     background: var(--color-black) url(../img/kkublack_s1_bg.jpg) no-repeat center / cover;
     text-align: center;
+
+    clip-path: inset(0 50%);
+    transition: clip-path 1.2s ease-in-out;
+}
+/* .hero-sec:hover {
+    clip-path: inset(0 0);
+} */
+.hero-sec.open {
+    clip-path: inset(0 0);
 }
 .txt-ani {
     height: 170px;
@@ -328,27 +337,53 @@ nav a:hover {
     color: var(--color-red-primary);
     line-height: 1;
 }
-.hero-sec.scroll .txt-ani > div {
+/* .hero-sec.scroll .txt-ani > div {
     transform: translateY(0);
     transition: 0.5s;
 }
 .hero-sec.scroll .txt-ani > div {
     transform: translateY(-170px);
+} */
+.hero-sec .txt-ani > div {
+    transform: translateY(calc(var(--progress, 0) * -100%));
+    transition: transform 0.15s ease-out;
 }
 .hero-sec p {
     margin-top: 1rem;
     font-size: 54px;
     font-weight: 800;
     color: var(--color-white);
-    opacity: 0;
+    /* opacity: 0; */
     letter-spacing: -0.02em;
-    transform: translateY(54px);
-    transition: 0.5s 0.5s;
+    /* transform: translateY(54px);
+    transition: 0.5s 0.5s; */
+    opacity: calc(var(--progress, 0) * 0.8);
+    transform: translateY(calc( (1 - var(--progress, 0)) * 54px));
+    transition: transform 0.15s ease-out, opacity 0.15s ease-in-out;
 }
-.hero-sec.scroll p {
+/* .hero-sec.scroll p {
     opacity: 0.8;
     transform: translateY(0);
-}
+} */
+
+
+/*
+휠 내리면 → 페이지가 이동
+
+휠 → 스크롤 잠금(아래섹션으로 넘어가지 않는다) → progress 증가(0에서 시작) → CSS변수 변경 → 텍스트 위치 변경됨 → progress가 100%이 됨(= 1) → 스크롤이 해제됨 → 다음섹션으로 이동
+
+--progress = 0이면 "멈출수없는맛"
+--progress = 0.3이면 "멈출수없는맛"이 조금 올라가면서 "불맛을 제대로"가 보이기 시작
+--progress = 1 "불맛을 제대로" 보임
+
+transform: translateY(calc(var(--progress, 0) * -100%));
+progress가 0이면 translateY(0%),
+0.5면 -50%, 1이면 -100%
+
+opacity: calc(var(--progress, 0) * 0.8);
+progress가 0이면 0, opacity가 1이면 0.8
+*/
+
 
 @media (max-width: 1280px) {
     .hero-sec {
@@ -359,9 +394,7 @@ nav a:hover {
     .txt-ani {
         height: 106px;
     }
-    .hero-sec.scroll .txt-ani > div {
-        transform: translateY(-106px);
-    }
+    
     .hero-sec strong,
     .hero-sec h2 {
         font-size: 106px;
@@ -378,9 +411,6 @@ nav a:hover {
     }
     .txt-ani {
         height: 65px;
-    }
-    .hero-sec.hero-sec.scroll .txt-ani > div {
-        transform: translateY(-65px);
     }
     .hero-sec strong,
     .hero-sec h2 {
