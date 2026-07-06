@@ -123,14 +123,151 @@
             </ul>
             <!-- 스크롤 작업시 header가 사라진 후 생성 -->
 
-            <section class="hero-sec heading scroll" id="brand">
-                <div class="txt-ani">
+            <section class="hero-sec heading" id="brand">
+                <div class="txt-ani" data-aos="fade-up" data-aos-anchor-placement="top-bottom"  data-aos-delay="1500">
                     <div><strong>멈출 수 없는 맛</strong></div>
                     <div><strong>불맛을 제대로</strong></div>
                 </div>
-                <h2>꾸블랙치킨</h2>
-                <p>1만 시간의 집념으로 제대로 구웠다.</p>
+                <h2 data-aos="fade-up" data-aos-anchor-placement="top-bottom"  data-aos-delay="1800">꾸블랙치킨</h2>
+                <p >1만 시간의 집념으로 제대로 구웠다.</p>
             </section>
+            <script>
+                window.addEventListener("load", function() {
+                    document.querySelector(".hero-sec").classList.add("open");
+                })
+
+                // 0부터 시작이라 변수값을 0으로 지정함
+                let progress = 0;
+
+                // 현재 스크을 잠근 상태이자 저장
+                // false일때는 일반 스크롤 가능, true일때는 스크롤을 막고 애니메이션 실행
+                let isHeroLocked = false;
+
+                // 스크롤 잠글때 현재 위치
+                let scrollPosY = 0;
+
+                // 애니메이션이 끝까지 동작하기 위해 필요한 스크롤 양
+                // 1200px만큼 휠을 돌리면 progress가 1이 됨
+                const TOTAL = 1200;
+
+                // 스크롤 해제 예약이 되어있는지 확인하는 변수
+                // setTimeout이 여러번 실행되지 않도록 막는 장치
+                // 지금 스크롤을 해제하는 작업을 예약해둔 상태인가? 를 저장
+                // 잠시후 스크롤을 풀어줄게! 상태인지 확인하는 변수
+                // 이미 기다리는 중이라면 setTimeout을 또 실행하지 않는다.
+                let isUnlocking = false;
+
+                const heroPanel = document.querySelector("#brand");
+
+                window.addEventListener('wheel', (e) => {
+                    // 0보다 크다는 건 +100 : 아래로 스크롤한것, -100 : 위로 스크롤한것
+                    // 마우스휠을 아래로하면 양수(TRUE), 위로하면 음수(FALSE)
+                    // 아래인지 위인지 판단하는 함수임
+                    const goingDown = e.deltaY > 0;
+                    // console.log(e.deltaY);
+                    // getBoundingClientRect() 현재요소가 화면의 어디에 있는지 알려주는 함수
+                    const heroRect = heroPanel.getBoundingClientRect();
+                    // console.log(heroRect);
+
+                    // 요소의 아래쪽 끝이 화면의 맨 위(0px)에서 얼마나 떨어져 있는지 heroRect.bottom
+                    // 히어로 화면 아래쪽 끝이 아직 화면 위보다 아래에 있다면 true, 즉 화면에 아직 보이는 상태
+                    // 완벽히 섹션을 지나갔는지 확인하기위해 -50값을 줌
+                    bottom = -50;
+                    const isHeroVisible = heroRect.bottom > 0;
+
+                
+                    // 일반 스크롤 상태일때만 실행
+                    if(!isHeroLocked) {
+                        // 아래로 스크롤 + 히어로 섹션보임 + 아직 애니메이션이 안끝남을 모두 만족
+                        const lockDown = goingDown && isHeroVisible && progress < 1;
+                        
+                        // 위로 스크롤 + 맨위 + 애니메이션이 끝난 상태이면 역재생
+                        const lockUp = !goingDown && window.scrollY <= 0 && progress > 0;
+
+                        // 아래 또는 위 조건이 만족된 경우(둘중하나만 만족이 되면)
+                        if (lockDown || lockUp) {
+                            // 스크롤 잠금 상태
+                            isHeroLocked = true;
+
+                            // 이전 예약이 남아있다면 초기화
+                            isUnlocking = false;
+
+                            // 현재위치 저장 후 hidden(페이지 이동화면을 막음)
+                            scrollPosY = window.scrollY;
+                            document.documentElement.style.overflow = "hidden";
+                        }
+                    }
+
+
+                    // 잠겨있는 동안 실행(잠긴 상태에서만)
+                    if(isHeroLocked) {
+                        // 기본 스크롤(해당이벤트)을 막음
+                        e.preventDefault();
+
+                        // 스크롤 위치 고정(아까 저장한 위치로 계속 되돌려야 화면이 움직이지 않음)
+                        window.scrollTo(0, scrollPosY);
+
+                        // 120 / 1200 = 0.1 progress가 0.1, 0.2, 0.3으로 증가
+                        progress += e.deltaY / TOTAL;
+
+                        // -0.2면 0 1이 넘어가면 1로 제한하여 변환
+                        progress = Math.min(Math.max(progress, 0), 1);
+
+                        // css로 적용
+                        heroPanel.style.setProperty("--progress", progress);
+
+                        // 애니메이션 끝남 아직 스크롤 해제를 예약하지 않았다면 실행
+                        if(progress >= 1 && !isUnlocking) {
+                            // 중복예약을 막기
+                            isUnlocking = true;
+
+                            setTimeout(() => {
+                                // 사용자가 다시 위로 돌리지 않았다면
+                                if(progress >= 1) {
+                                    // 잠금을 해제하자
+                                    isHeroLocked = false;
+                                    document.documentElement.style.overflow = "auto";
+                                }
+                                // 예약상태를 초기화 하자
+                                isUnlocking = false;
+                            }, 600);
+                        }
+
+                        // 역재생 종료 - 잠금해제 후 일반 스크롤로 돌아감
+                        if(progress <= 0) {
+                            isHeroLocked = false;
+                            document.documentElement.style.overflow = "auto";
+                        }
+                    }
+                    // whell이벤트안에서 preventDefalt()를 사용할 것이다 라고 브라우저에게 알림
+                    // 요즘 브라우저들이 wheel, touch이벤트에서는 기본적으로 스크롤을 막지않을거지?라고 동작함
+                }, {passive : false});
+            </script>
+
+            <!-- 
+                사용자가 휠을 돌림
+                ↓
+                아래 또는 위 스크롤인지 확인
+                ↓
+                히어로가 화면에 있는지 확인
+                ↓
+                스크롤 잠금
+                ↓
+                progress값 증가 (0 → 1)
+                ↓
+                css변수 변경(--progress)
+                ↓
+                텍스트위치와 투명도 애니메이션 실행(css 작업)
+                ↓
+                progress = 1
+                ↓
+                600ms 대기
+                ↓
+                스크롤 잠금해제
+                ↓
+                다음섹션 이동
+            -->
+
             <div class="banner-wrap heading">
                 <dic class="banner-track">
                     <div class="banner-item">
@@ -673,7 +810,7 @@
 </script>
 
 <script>
-// AOS.init();]
+// AOS.init();
 
 // 전체적인 속성 제어
 AOS.init({
