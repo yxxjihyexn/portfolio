@@ -46,6 +46,7 @@
                 menu.classList.toggle("is-open");
             });
         </script>
+
         <main>
             <ul class="menu-wrap">
                 <li><a href="#story">OUR STORY</a></li>
@@ -78,9 +79,12 @@
                         <div class="brand-wrap">
                             <!-- 왼쪽 콘텐츠 -->
                             <div class="brand-content">
-                                <h2 class="brand-title">
+                                <div class="tit-content">
+                                    <h2 class="brand-title">
                                     NOT JUST FRIES.
-                                </h2>
+                                    </h2>
+                                    <img class="brand-star" src="img/sticker_star.webp" alt="">
+                                </div>
                                 <p class="brand-sub-title">
                                     The Next Generation of Global Fast-Casual<br>: K-Potato Craze starts here.
                                 </p>
@@ -109,13 +113,136 @@
                                     </p>
                                 </li>
                             </ul>
+                            <img class="brand-fries" src="img/brandsec-fries.png" alt="">
                         </div>
-                        <img class="brand-fries" src="img/brandsec-fries.png" alt="">
-                        <img class="brand-star" src="img/sticker_star.webp" alt="">
                         <img class="brand-arrow" src="img/sticker_arrow.webp" alt="">
                     </div>
                 </section>
-           </div>
+            </div>
+
+            <!-- rolling-banner -->
+            <div class="rolling-banner">
+                        <div class="rolling-track">
+                            <div class="rolling-item">
+                                <div>
+                                    <span class="star-icon">★</span>
+                                    <span>RIDING THE GLOBAL CRUNCH TREND</span>
+                                    <span>//</span>
+                                    <span>GET ANGRY, GET CRUNCHY !</span>
+                                </div>
+                                <div>
+                                    <span class="star-icon">★</span>
+                                    <span>RIDING THE GLOBAL CRUNCH TREND</span>
+                                    <span>//</span>
+                                    <span>GET ANGRY, GET CRUNCHY !</span>
+                                </div>
+                                <div>
+                                    <span class="star-icon">★</span>
+                                    <span>RIDING THE GLOBAL CRUNCH TREND</span>
+                                    <span>//</span>
+                                    <span>GET ANGRY, GET CRUNCHY !</span>
+                                </div>
+                            </div>
+                            <div class="rolling-item">
+                                <div>
+                                    <span class="star-icon">★</span>
+                                    <span>RIDING THE GLOBAL CRUNCH TREND</span>
+                                    <span>//</span>
+                                    <span>GET ANGRY, GET CRUNCHY !</span>
+                                </div>
+                                <div>
+                                    <span class="star-icon">★</span>
+                                    <span>RIDING THE GLOBAL CRUNCH TREND</span>
+                                    <span>//</span>
+                                    <span>GET ANGRY, GET CRUNCHY !</span>
+                                </div>
+                                <div>
+                                    <span class="star-icon">★</span>
+                                    <span>RIDING THE GLOBAL CRUNCH TREND</span>
+                                    <span>//</span>
+                                    <span>GET ANGRY, GET CRUNCHY !</span>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            
+            <!-- corevalue-sec -->
+            <section class="corevalue-sec" id="corevalue">
+                <div class="inner">
+                    <div class="heading">
+                        <h2>WHY ANGRY POTATO ?</h2>
+                        <p>
+                            Zero frozen copycats. Infinite viral choices. 1-minute smart operation.<br>
+                            This is why global partners choose the next fast-casual giant.
+                        </p>
+                    </div>
+                    <div class="corevalue-list">
+                        <!-- item -->
+                        <div class="corevalue-content">
+                            <div class="card-tit">
+                                <strong>01</strong>
+                                <h3># 100% FRESH NATURAL POTATOES</h3>
+                            </div>
+                            <div class="card-in">
+                                <p>
+                                    100% premium, fresh Korean potatoes from trusted farms.<br>Strict contract farming system ensures stable global logistics.<br>Unmatched natural quality that factory-made frozen fries can never replicate.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="corevalue-content">
+                            <div class="card-tit">
+                                <strong>02</strong>
+                                <h3># INFINITE CUSTOMIZATION</h3>
+                            </div>
+                            <div class="card-in">
+                                <p>
+                                    9 signature self-refill sauces and diverse street toppings.<br>Empowering global Gen Z to curate their very own potato dish.<br>A playful system that effortlessly drives high-profit viral trends.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="corevalue-content">
+                            <div class="card-tit">
+                                <strong>03</strong>
+                                <h3># MADE-TO-ORDER CRUNCH</h3>
+                            </div>
+                            <div class="card-in">
+                                <p>
+                                    Zero pre-made soggy batches; fried immediately upon every order.<br>Serving the ultimate, crispy crunch to customers every single time.<br>Smart 3-step system allows anyone to serve flawlessly within 1 minute.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script>
+                const cards = document.querySelectorAll('.corevalue-content');
+
+                cards.forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+
+                        cards.forEach(item => {
+                            item.classList.remove('active', 'hide');
+                        });
+
+                        card.classList.add('active');
+
+                        cards.forEach(item => {
+                            if (item !== card) {
+                                item.classList.add('hide');
+                            }
+                        });
+
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+
+                        cards.forEach(item => {
+                            item.classList.remove('active', 'hide');
+                        });
+
+                    });
+                });
+            </script>
         </main>
     </div>
 </body>
