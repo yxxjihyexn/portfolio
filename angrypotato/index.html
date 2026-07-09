@@ -58,18 +58,19 @@
            <div class="sec-wrap">
                 <!-- hero-sec -->
                 <section class="hero-sec">
-                    <div class="hero-txt">
-                        <p>ANGRY POTATO</p>
-                        <p class="outline">ANGRY POTATO</p>
-                        <p>ANGRY POTATO</p>
-                        <img class="hero-img" src="img/sec1-img.png" alt="">
-                        <img class="caractor01" src="img/logo.webp" alt="">
-                        <img class="caractor02" src="img/logo.webp" alt="">
-                    </div>                
+                    <div class="inner">
+                        <div class="hero-txt">
+                            <p>ANGRY<br class="mo-br">POTATO</p>
+                            <p class="outline">ANGRY<br class="mo-br">POTATO</p>
+                            <p>ANGRY<br class="mo-br">POTATO</p>
+                            <img class="hero-img" src="img/hero-img.png" alt="">
+                            <img class="caractor01" src="img/logo.webp" alt="">
+                            <img class="caractor02" src="img/logo.webp" alt="">
+                        </div>                
+                        <img class="brand-chips" src="img/brandsec-chips.png" alt="">
+                    </div>
                     <img class="hero-bg01" src="img/hero_bg01.png.webp" alt="">
-                    <img class="hero-bg02" src="img/hero_bg02.png.webp" alt="">
-                    
-                    <img class="brand-chips" src="img/brandsec-chips.png" alt="">
+                    <img class="hero-bg02" src="img/hero_bg01.png.webp" alt="">
                 </section>
 
                 <!-- brand-sec -->
@@ -89,7 +90,7 @@
                                     The Next Generation of Global Fast-Casual<br>: K-Potato Craze starts here.
                                 </p>
                                 <p class="brand-desc">
-                                    "We wanted to break the limits of French fries—moving them from a boring side dish into the main character of the table.<br>ANGRY POTATO is our playful rebellion against the mundane, frozen-fry industry.<br>In the coolest, most dynamic way possible, we are setting a brand new standard for K-snacks across the globe."
+                                    "We wanted to break the limits of French fries—moving them from a boring side dish into the main character of the table."<br>ANGRY POTATO is our playful rebellion against the mundane, frozen-fry industry.<br>In the coolest, most dynamic way possible, we are setting a brand new standard for K-snacks across the globe."
                                 </p>
                             </div>
                             <!-- 오른쪽 콘텐츠 -->
@@ -177,7 +178,6 @@
                         </p>
                     </div>
                     <div class="corevalue-list">
-                        <!-- item -->
                         <div class="corevalue-content">
                             <div class="card-tit">
                                 <strong>01</strong>
@@ -214,32 +214,154 @@
                     </div>
                 </div>
             </section>
+            
+            <img class="sec-deco" src="img/core-sec-deco.png" alt="">
+
+            <!-- signature-sec -->
+            <section class="signature-sec" id="signature">
+                <div class="inner">
+
+                    <div class="heading">
+                        <h2>MAKE IT OWN STYLE</h2>
+                    </div>
+
+                    <div class="signature-slider">
+
+                        <!-- 이전 버튼 -->
+                        <button class="slide-btn prev" aria-label="이전 슬라이드">
+                            <span>&lt;</span>
+                        </button>
+
+                        <!-- 슬라이드 -->
+                        <div class="slide-wrap">
+
+                            <article class="slide-item">
+
+                                <div class="slide-img">
+                                    <img src="img/signature01.webp" alt="Pick the Crunch">
+                                </div>
+
+                                <div class="slide-content">
+                                    <span class="step">STEP 01</span>
+
+                                    <h3>PICK THE CRUNCH</h3>
+
+                                    <div class="line"></div>
+
+                                    <p>
+                                        Start with our premium, 100% Non-GMO Korean potatoes cooked to golden perfection.
+                                        Select your favorite base cut to set the ultimate crunchy foundation
+                                        for your custom creation.
+                                    </p>
+                                </div>
+
+                            </article>
+
+                        </div>
+
+                        <!-- 다음 버튼 -->
+                        <button class="slide-btn next" aria-label="다음 슬라이드">
+                            <span>&gt;</span>
+                        </button>
+
+                    </div>
+
+                    <!-- Step Navigation -->
+                    <ol class="step-list">
+
+                        <li class="active">
+                            <span class="step-num">01</span>
+                            <span class="step-title">PICK THE CRUNCH</span>
+                        </li>
+
+                        <li>
+                            <span class="step-num">02</span>
+                            <span class="step-title">LOAD UP WITH TOPPINGS</span>
+                        </li>
+
+                        <li>
+                            <span class="step-num">03</span>
+                            <span class="step-title">SPLASH THE SIGNATURE</span>
+                        </li>
+
+                        <li>
+                            <span class="step-num">04</span>
+                            <span class="step-title">MATCH YOUR REFRESHMENT</span>
+                        </li>
+
+                        <li>
+                            <span class="step-num">05</span>
+                            <span class="step-title">COMPLEMENT WITH SIDES</span>
+                        </li>
+
+                    </ol>
+
+                </div>
+            </section>
             <script>
+                const list = document.querySelector('.corevalue-list');
                 const cards = document.querySelectorAll('.corevalue-content');
 
-                cards.forEach(card => {
-                    card.addEventListener('mouseenter', () => {
+                function isMobile() {
+                    return window.innerWidth <= 767;
+                }
 
-                        cards.forEach(item => {
-                            item.classList.remove('active', 'hide');
-                        });
+                function openCard(card) {
 
-                        card.classList.add('active');
+                    // 모든 카드 초기화
+                    cards.forEach(item => {
+                        item.classList.remove('active', 'hide');
+                    });
 
+                    // 선택한 카드 활성화
+                    card.classList.add('active');
+
+                    // PC/Tablet만 hide 적용
+                    if (!isMobile()) {
                         cards.forEach(item => {
                             if (item !== card) {
                                 item.classList.add('hide');
                             }
                         });
+                    }
+                }
 
+                cards.forEach(card => {
+
+                    // PC / Tablet
+                    card.addEventListener('mouseenter', () => {
+                        if (isMobile()) return;
+                        openCard(card);
                     });
 
-                    card.addEventListener('mouseleave', () => {
+                    // Mobile
+                    card.addEventListener('click', () => {
+                        if (!isMobile()) return;
 
-                        cards.forEach(item => {
-                            item.classList.remove('active', 'hide');
-                        });
+                        // 이미 열려있으면 닫기
+                        if (card.classList.contains('active')) {
+                            card.classList.remove('active');
+                            return;
+                        }
 
+                        openCard(card);
+                    });
+
+                });
+
+                // PC에서만 초기화
+                list.addEventListener('mouseleave', () => {
+                    if (isMobile()) return;
+
+                    cards.forEach(item => {
+                        item.classList.remove('active', 'hide');
+                    });
+                });
+
+                // 브레이크포인트 변경 시 초기화
+                window.addEventListener('resize', () => {
+                    cards.forEach(item => {
+                        item.classList.remove('active', 'hide');
                     });
                 });
             </script>
