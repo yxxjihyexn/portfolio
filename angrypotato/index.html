@@ -405,54 +405,42 @@
                         </p>
                     </div>
                     <div class="partnership-list">
-
-                        <!-- item -->
-                        <article class="partnership-item">
+                        <div class="partnership-item">
                             <div class="icon-box">
-                                <img src="img/icon_training.svg" alt="">
+                                <img src="img/icon_standard.png" alt="">
                             </div>
-
                             <div class="item-content">
                                 <h3>Global Standard Training</h3>
-
                                 <p>
                                     Replicating the exact same flavor and service standards<br>
                                     across every country worldwide.
                                 </p>
                             </div>
-                        </article>
-
-                        <!-- item -->
-                        <article class="partnership-item">
+                        </div>
+                        <div class="partnership-item">
                             <div class="icon-box">
-                                <img src="img/icon_support.svg" alt="">
+                                <img src="img/icon_system.png" alt="">
                             </div>
-
                             <div class="item-content">
                                 <h3>All-in-One System Support</h3>
-
                                 <p>
                                     Standardizing everything from interior design to<br>
                                     commercial kitchen equipment.
                                 </p>
                             </div>
-                        </article>
-
-                        <!-- item -->
-                        <article class="partnership-item">
+                        </div>
+                        <div class="partnership-item">
                             <div class="icon-box">
-                                <img src="img/icon_growth.svg" alt="">
+                                <img src="img/icon_growth.png" alt="">
                             </div>
-
                             <div class="item-content">
                                 <h3>Continuous Growth Management</h3>
-
                                 <p>
                                     Ensuring long-term success with regular post-opening<br>
                                     monitoring and continuous audits.
                                 </p>
                             </div>
-                        </article>
+                        </div>
 
                     </div>
 
@@ -558,6 +546,22 @@
                     item.addEventListener('click', () => {
                         swiper.slideTo(index);
                     });
+                });
+
+
+                const partnershipItems = document.querySelectorAll(".partnership-item");
+                const partnershipObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show");
+                        }
+                    });
+                }, {
+                    threshold: 0.2
+                });
+
+                partnershipItems.forEach((item) => {
+                    partnershipObserver.observe(item);
                 });
             </script>
         </main>
