@@ -12,10 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 
     <link rel="stylesheet" href="css/main.css">
 </head>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <body>
     <div id="wrap">
         <!-- header -->
@@ -173,8 +175,7 @@
                     <div class="heading">
                         <h2>WHY ANGRY POTATO ?</h2>
                         <p>
-                            Zero frozen copycats. Infinite viral choices. 1-minute smart operation.<br>
-                            This is why global partners choose the next fast-casual giant.
+                            Zero frozen copycats. Infinite viral choices. 1-minute smart operation.<br>This is why global partners choose the next fast-casual giant.
                         </p>
                     </div>
                     <div class="corevalue-list">
@@ -215,86 +216,245 @@
                 </div>
             </section>
             
-            <img class="sec-deco" src="img/core-sec-deco.png" alt="">
-
             <!-- signature-sec -->
             <section class="signature-sec" id="signature">
+                <img class="sec-deco" src="img/core-sec-deco.png" alt="">
                 <div class="inner">
-
                     <div class="heading">
                         <h2>MAKE IT OWN STYLE</h2>
                     </div>
-
                     <div class="signature-slider">
-
                         <!-- 이전 버튼 -->
                         <button class="slide-btn prev" aria-label="이전 슬라이드">
-                            <span>&lt;</span>
+                            <img src="img/arrow-prev.png" alt="">
                         </button>
 
                         <!-- 슬라이드 -->
-                        <div class="slide-wrap">
+                        <div class="swiper signatureSwiper">
+                            <div class="swiper-wrapper">
 
-                            <article class="slide-item">
+                                <!-- Slide 01 -->
+                                <article class="swiper-slide slide-item">
+                                    <div class="slide-img-box">
+                                        <span class="bg-num">01</span>
+                                        <img src="img/step01.png" alt="Pick the Crunch">
+                                    </div>
+                                    <div class="slide-content">
+                                        <span class="step">STEP 01</span>
+                                        <h3>PICK THE CRUNCH</h3>
+                                        <p>
+                                            Start with our premium, 100% Non-GMO Korean potatoes cooked to golden perfection. Select your favorite base cut to set the ultimate crunchy foundation for your custom creation.
+                                        </p>
+                                    </div>
+                                </article>
 
-                                <div class="slide-img">
-                                    <img src="img/signature01.webp" alt="Pick the Crunch">
-                                </div>
+                                <!-- Slide 02 -->
+                                <article class="swiper-slide slide-item">
+                                    <div class="slide-img-box">
+                                        <span class="bg-num">02</span>
+                                        <img src="img/step02.webp" alt="Load Up With Toppings">
+                                    </div>
+                                    <div class="slide-content">
+                                        <span class="step">STEP 02</span>
+                                        <h3>LOAD UP WITH TOPPINGS</h3>
+                                        <p>
+                                            Pile it high and make it loud. Upgrade your texture with a diverse array of premium toppings, from crispy bacon bits to savory melted cheese, tailored entirely to your taste.
+                                        </p>
+                                    </div>
+                                </article>
 
-                                <div class="slide-content">
-                                    <span class="step">STEP 01</span>
+                                <!-- Slide 03 -->
+                                <article class="swiper-slide slide-item">
+                                    <div class="slide-img-box">
+                                        <span class="bg-num">03</span>
+                                        <img src="img/step03.webp" alt="Splash The Signature">
+                                    </div>
+                                    <div class="slide-content">
+                                        <span class="step">STEP 03</span>
+                                        <h3>SPLASH THE SIGNATURE</h3>
+                                        <p>
+                                            Drizzle or drench with our 9 signature sauces that define the true K-snack craze. From fiery chili to creamy garlic, lock in the bold flavor profile that keeps customers coming back.
+                                        </p>
+                                    </div>
+                                </article>
 
-                                    <h3>PICK THE CRUNCH</h3>
+                                <!-- Slide 04 -->
+                                <article class="swiper-slide slide-item">
+                                    <div class="slide-img-box">
+                                        <span class="bg-num">04</span>
+                                        <img src="img/step04.png" alt="Match Your Refreshment">
+                                    </div>
+                                    <div class="slide-content">
+                                        <span class="step">STEP 04</span>
+                                        <h3>MATCH YOUR REFRESHMENT</h3>
+                                        <p>
+                                            Balance the bold, savory crunch with the perfect beverage pairing. Choose from our refreshing local-infused craft sodas and premium iced teas
+                                            designed to cleanse the palate.
+                                        </p>
+                                    </div>
+                                </article>
 
-                                    <div class="line"></div>
-
-                                    <p>
-                                        Start with our premium, 100% Non-GMO Korean potatoes cooked to golden perfection.
-                                        Select your favorite base cut to set the ultimate crunchy foundation
-                                        for your custom creation.
-                                    </p>
-                                </div>
-
-                            </article>
-
+                                <!-- Slide 05 -->
+                                <article class="swiper-slide slide-item">
+                                    <div class="slide-img-box">
+                                        <span class="bg-num">05</span>
+                                        <img src="img/step05.png" alt="Complement With Sides">
+                                    </div>
+                                    <div class="slide-content">
+                                        <span class="step">STEP 05</span>
+                                        <h3>COMPLEMENT WITH SIDES</h3>
+                                        <p>
+                                            Complete the ultimate fast-casual meal experience. Add a side of our street-style finger foods to craft a perfectly rounded combo that maximizes satisfaction and flavor.
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
                         </div>
 
                         <!-- 다음 버튼 -->
                         <button class="slide-btn next" aria-label="다음 슬라이드">
-                            <span>&gt;</span>
+                            <img src="img/arrow-next.png" alt="">
                         </button>
-
                     </div>
 
-                    <!-- Step Navigation -->
-                    <ol class="step-list">
+                    <!-- 회색 라인 + 움직이는 주황색 바 -->
+                    <div class="step-progress">
+                        <span class="step-indicator"></span>
+                    </div>
 
-                        <li class="active">
+                    <!-- Step List -->
+                    <ol class="step-list">
+                        <li>
                             <span class="step-num">01</span>
                             <span class="step-title">PICK THE CRUNCH</span>
                         </li>
-
                         <li>
                             <span class="step-num">02</span>
                             <span class="step-title">LOAD UP WITH TOPPINGS</span>
                         </li>
-
                         <li>
                             <span class="step-num">03</span>
                             <span class="step-title">SPLASH THE SIGNATURE</span>
                         </li>
-
                         <li>
                             <span class="step-num">04</span>
                             <span class="step-title">MATCH YOUR REFRESHMENT</span>
                         </li>
-
                         <li>
                             <span class="step-num">05</span>
                             <span class="step-title">COMPLEMENT WITH SIDES</span>
                         </li>
-
                     </ol>
+                </div>
+            </section>
+
+            <!-- global-sec -->
+            <section class="global-sec" id="global">
+                <div class="inner">
+                    <div class="global-map">
+                        <img src="img/map.png" alt="ANGRY POTATO Global Expansion Map" class="map-img">
+
+                        <img src="img/caractor03.webp" alt="" class="map-character character01">
+                        <img src="img/caractor03.webp" alt="" class="map-character character02">
+                        <img src="img/caractor03.webp" alt="" class="map-character character03">
+                        <img src="img/caractor02.webp" alt="" class="map-character character04">
+                        <img src="img/caractor02.webp" alt="" class="map-character character05">
+                    </div>
+
+                    <div class="global-content">
+                        <div class="heading">
+                            <span class="label">ANGRY POTATO GLOBAL</span>
+                            <h2>PROVEN IN KOREA,<br>READY FOR WORLDWIDE</h2>
+                            <p>
+                                Proven by major department store sell-outs and successful Asian market expansion.<br>
+                                ANGRY POTATO turns premium local ingredients into a global franchise sensation.<br>
+                                Plug your city into our fast-growing success story right now.
+                            </p>
+                        </div>
+                        <ul class="status-list">
+                            <li class="status-item">
+                                <strong>COMING SOON</strong>
+                                <div class="country-list">
+                                    <span>AMERICA</span>
+                                    <span>JAPAN</span>
+                                    <span>CHINA</span>
+                                </div>
+                            </li>
+                            <li class="status-item">
+                                <strong>7TH STORE</strong>
+                                <span class="country-list">KOREA</span>
+                            </li>
+                            <li class="status-item">
+                                <strong>5TH STORE</strong>
+                                <span class="country-list">PHILIPPINES</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- partnership-sec -->
+            <section class="partnership-sec" id="partnership">
+                <div class="inner">
+                    <div class="heading">
+                        <h2>GLOBAL PARTNERSHIP SYSTEM</h2>
+                        <p>
+                            We perfectly replicate Angry Potato's proven success formula from Korea into any market worldwide.<br>
+                            With a structured management system and a robust global logistics infrastructure,<br>
+                            we support the stable growth of our international partners.
+                        </p>
+                    </div>
+                    <div class="partnership-list">
+
+                        <!-- item -->
+                        <article class="partnership-item">
+                            <div class="icon-box">
+                                <img src="img/icon_training.svg" alt="">
+                            </div>
+
+                            <div class="item-content">
+                                <h3>Global Standard Training</h3>
+
+                                <p>
+                                    Replicating the exact same flavor and service standards<br>
+                                    across every country worldwide.
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- item -->
+                        <article class="partnership-item">
+                            <div class="icon-box">
+                                <img src="img/icon_support.svg" alt="">
+                            </div>
+
+                            <div class="item-content">
+                                <h3>All-in-One System Support</h3>
+
+                                <p>
+                                    Standardizing everything from interior design to<br>
+                                    commercial kitchen equipment.
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- item -->
+                        <article class="partnership-item">
+                            <div class="icon-box">
+                                <img src="img/icon_growth.svg" alt="">
+                            </div>
+
+                            <div class="item-content">
+                                <h3>Continuous Growth Management</h3>
+
+                                <p>
+                                    Ensuring long-term success with regular post-opening<br>
+                                    monitoring and continuous audits.
+                                </p>
+                            </div>
+                        </article>
+
+                    </div>
 
                 </div>
             </section>
@@ -362,6 +522,41 @@
                 window.addEventListener('resize', () => {
                     cards.forEach(item => {
                         item.classList.remove('active', 'hide');
+                    });
+                });
+
+                const stepItems = document.querySelectorAll('.step-list li');
+                const indicator = document.querySelector('.step-indicator');
+
+                const swiper = new Swiper('.signatureSwiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+
+                    navigation: {
+                        nextEl: '.next',
+                        prevEl: '.prev',
+                    },
+
+                    on: {
+                        init() {
+                            stepItems[0].classList.add('active');
+                        },
+
+                        slideChange() {
+                            // active 변경
+                            stepItems.forEach(item => item.classList.remove('active'));
+                            stepItems[this.activeIndex].classList.add('active');
+
+                            // 인디케이터 이동
+                            indicator.style.transform =
+                                `translateX(${this.activeIndex * 100}%)`;
+                        }
+                    }
+                });
+
+                stepItems.forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        swiper.slideTo(index);
                     });
                 });
             </script>
