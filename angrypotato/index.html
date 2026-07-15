@@ -25,7 +25,7 @@
             <div class="h-in">
                 <h1 class="logo">
                     <a href="index.html">
-                        <img src="img/logo.webp" alt="">
+                        <img src="img/logo02.png" alt="">
                         <span class="logo-txt">ANGRY POTATO</span>
                     </a>
                 </h1>
@@ -252,7 +252,7 @@
                                 <article class="swiper-slide slide-item">
                                     <div class="slide-img-box">
                                         <span class="bg-num">02</span>
-                                        <img src="img/step02.webp" alt="Load Up With Toppings">
+                                        <img src="img/step02.png" alt="Load Up With Toppings">
                                     </div>
                                     <div class="slide-content">
                                         <span class="step">STEP 02</span>
@@ -267,7 +267,7 @@
                                 <article class="swiper-slide slide-item">
                                     <div class="slide-img-box">
                                         <span class="bg-num">03</span>
-                                        <img src="img/step03.webp" alt="Splash The Signature">
+                                        <img src="img/step03.png" alt="Splash The Signature">
                                     </div>
                                     <div class="slide-content">
                                         <span class="step">STEP 03</span>
@@ -465,64 +465,92 @@
                     return window.innerWidth <= 767;
                 }
 
+                // =====================
+                // PC 카드 열기
+                // =====================
                 function openCard(card) {
 
-                    // 모든 카드 초기화
                     cards.forEach(item => {
                         item.classList.remove('active', 'hide');
                     });
 
-                    // 선택한 카드 활성화
                     card.classList.add('active');
 
-                    // PC/Tablet만 hide 적용
-                    if (!isMobile()) {
-                        cards.forEach(item => {
-                            if (item !== card) {
-                                item.classList.add('hide');
-                            }
-                        });
-                    }
+                    cards.forEach(item => {
+                        if (item !== card) {
+                            item.classList.add('hide');
+                        }
+                    });
                 }
 
+                // =====================
+                // PC Hover
+                // =====================
                 cards.forEach(card => {
 
-                    // PC / Tablet
                     card.addEventListener('mouseenter', () => {
+
                         if (isMobile()) return;
-                        openCard(card);
-                    });
-
-                    // Mobile
-                    card.addEventListener('click', () => {
-                        if (!isMobile()) return;
-
-                        // 이미 열려있으면 닫기
-                        if (card.classList.contains('active')) {
-                            card.classList.remove('active');
-                            return;
-                        }
 
                         openCard(card);
+
                     });
 
                 });
 
-                // PC에서만 초기화
+                // =====================
+                // PC Hover 해제
+                // =====================
                 list.addEventListener('mouseleave', () => {
+
                     if (isMobile()) return;
 
-                    cards.forEach(item => {
-                        item.classList.remove('active', 'hide');
+                    cards.forEach(card => {
+                        card.classList.remove('active', 'hide');
                     });
+
                 });
 
-                // 브레이크포인트 변경 시 초기화
-                window.addEventListener('resize', () => {
-                    cards.forEach(item => {
-                        item.classList.remove('active', 'hide');
+                // =====================
+                // Mobile Scroll Animation
+                // =====================
+                const observer = new IntersectionObserver((entries) => {
+
+                    if (!isMobile()) return;
+
+                    entries.forEach(entry => {
+
+                        entry.target.classList.toggle(
+                            'show',
+                            entry.isIntersecting
+                        );
+
                     });
+
+                }, {
+                    threshold: 0.4
                 });
+
+                cards.forEach(card => observer.observe(card));
+
+                // =====================
+                // Resize
+                // =====================
+                window.addEventListener('resize', () => {
+
+                    cards.forEach(card => {
+
+                        card.classList.remove(
+                            'active',
+                            'hide',
+                            'show'
+                        );
+
+                    });
+
+                });
+
+                
 
                 const stepItems = document.querySelectorAll('.step-list li');
                 const indicator = document.querySelector('.step-indicator');
@@ -560,6 +588,7 @@
                 });
 
 
+
                 const partnershipItems = document.querySelectorAll(".partnership-item");
                 const partnershipObserver = new IntersectionObserver((entries) => {
                     entries.forEach((entry) => {
@@ -592,7 +621,7 @@
                         </div>
                     </address>
                     <p class="footer-address">
-                        Address : Snactory Bldg., 10-1, Dangsan-ro 40-gil,<br>Yeongdeungpo-gu, Seoul, Republic of Korea
+                        Address : Snactory Bldg., 10-1, Dangsan-ro 40-gil, Yeongdeungpo-gu, Seoul, Republic of Korea
                     </p>
                     <p class="copyright">
                         Copyright © ANGRY POTATO. All Rights Reserved.
@@ -608,13 +637,28 @@
 
         <!-- chatbot -->
         <div class="chatbot">
-            <button class="chatbot-btn" aria-label="챗봇 열기">
+
+            <!-- Floating Button -->
+            <button class="chatbot-btn" type="button" aria-label="챗봇 열기">
                 <img class="chatbot-icon icon-default" src="img/icon-chatbot.png" alt="">
                 <img class="chatbot-icon icon-hover" src="img/icon-chatbot-hover.png" alt="" aria-hidden="true">
-                <img class="chatbot-icon icon-close" src="img/icon-chatbot-closed.png"
-                    alt="" aria-hidden="true">
             </button>
+
+            <!-- Widget -->
+            <div class="chatbot-widget">
+                <img src="img/chatbot01.png" alt="ANGRY POTATO 챗봇">
+            </div>
+
         </div>
+
+        <script>
+            const chatbot = document.querySelector('.chatbot');
+            const button = document.querySelector('.chatbot-btn');
+
+            button.addEventListener('click', () => {
+                chatbot.classList.toggle('is-open');
+            });
+        </script>
     </div>
 </body>
 </html>
