@@ -31,33 +31,24 @@
                         <span class="logo-txt">ANGRY POTATO</span>
                     </a>
                 </h1>
-                <nav class="gnb">
-                    <h2 class="sr-only">메인 메뉴</h2>
-                    <ul>
-                        <li class="active"><a href="#">OUR STORY</a></li>
-                        <li class="active"><a href="#">WHY US?</a></li>
-                        <li class="active"><a href="#">SIGNATURES</a></li>
-                        <li class="active"><a href="#">GLOBAL GROWTH</a></li>
-                    </ul>
-                </nav>
+                <ul class="gnb-menu">
+                    <li class="active"><a href="#story">OUR STORY</a></li>
+                    <li class="active"><a href="#corevalue">WHY US?</a></li>
+                    <li class="active"><a href="#signature">SIGNITURES</a></li>
+                    <li class="active"><a href="#global">GLOBAL GROWTH</a></li>
+                </ul>
             </div>
         </header>
-        <script>
-            const menuBtn = document.querySelector(".menu-btn");
-            const menu = document.querySelector(".mo-nav-box");
-
-            menuBtn.addEventListener("click", () => {
-                menu.classList.toggle("is-open");
-            });
-        </script>
 
         <main>
-            <ul class="menu-wrap">
-                <li><a href="#story">OUR STORY</a></li>
-                <li><a href="#why">WHY US?</a></li>
-                <li><a href="#signature">SIGNATURES</a></li>
-                <li><a href="#global">GLOBAL GROWTH</a></li>
-            </ul> 
+            <nav class="mo-nav">
+                <ul class="menu-wrap">
+                    <li class="active"><a href="#story">OUR STORY</a></li>
+                    <li class="active"><a href="#corevalue">WHY US?</a></li>
+                    <li class="active"><a href="#signature">SIGNATURES</a></li>
+                    <li class="active"><a href="#global">GLOBAL GROWTH</a></li>
+                </ul>
+            </nav> 
             
            <div class="sec-wrap">
                 <!-- hero-sec -->
@@ -460,6 +451,76 @@
             </section>
 
             <script>
+                const menuItems = document.querySelectorAll(".gnb-menu li, .menu-wrap li");
+                const sections = document.querySelectorAll("#story, #corevalue, #signature, #global");
+
+                window.addEventListener("scroll", () => {
+
+                    const scrollY = window.scrollY;
+                    const headerHeight = document.querySelector("header").offsetHeight;
+
+                    let currentId = "";
+
+                    sections.forEach((section) => {
+
+                        if (scrollY >= section.offsetTop - headerHeight - 20) {
+                            currentId = section.id;
+                        }
+
+                    });
+
+                    menuItems.forEach((item) => {
+
+                        item.classList.remove("active");
+
+                        const link = item.querySelector("a");
+
+                        if (link.getAttribute("href") === "#" + currentId) {
+                            item.classList.add("active");
+                        }
+
+                    });
+
+                });
+
+
+                const menuWrap = document.querySelector(".menu-wrap");
+
+                function toggleMobileMenu() {
+
+                    // 500px 초과면 항상 숨김
+                    if (window.innerWidth > 500) {
+                        menuWrap.classList.remove("show");
+                        return;
+                    }
+
+                    // 500px 이하에서 스크롤 시 표시
+                    if (window.scrollY > 10) {
+                        menuWrap.classList.add("show");
+                    } else {
+                        menuWrap.classList.remove("show");
+                    }
+
+                }
+
+                // 스크롤
+                window.addEventListener("scroll", toggleMobileMenu);
+
+                // 리사이즈
+                window.addEventListener("resize", toggleMobileMenu);
+
+                // 처음 로드될 때도 실행
+                toggleMobileMenu();
+
+                window.addEventListener("resize", () => {
+
+                    if (window.innerWidth > 500) {
+                        menuWrap.classList.remove("show");
+                    }
+
+                });
+
+
                 const list = document.querySelector('.corevalue-list');
                 const cards = document.querySelectorAll('.corevalue-content');
 
@@ -529,7 +590,7 @@
 
                     });
 
-                }, {
+                }, { 
                     threshold: 0.4
                 });
 
@@ -605,6 +666,7 @@
                 partnershipItems.forEach((item) => {
                     partnershipObserver.observe(item);
                 });
+
             </script>
         </main>
        
@@ -626,7 +688,7 @@
                         Address : Snactory Bldg., 10-1, Dangsan-ro 40-gil, Yeongdeungpo-gu, Seoul, Republic of Korea
                     </p>
                     <p class="copyright">
-                        Copyright © ANGRY POTATO. All Rights Reserved.
+                        Copyright &copy; ANGRY POTATO. All Rights Reserved.
                     </p>
                 </div>
                 <div class="footer-logo" aria-hidden="true">
