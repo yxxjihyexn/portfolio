@@ -377,10 +377,10 @@ header {
 
 .hero-txt .hero-img {
     position: absolute;
-    top: 50%;
+    top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 33%;
+    width: 45%;
     z-index: 4;
 }
 
@@ -442,7 +442,7 @@ header {
         line-height: 0.75;
     }
     .hero-txt .hero-img {
-        width: 50%;
+        width: 70%;
     }
     .hero-txt .caractor01 {
         top: 84%;
@@ -451,6 +451,12 @@ header {
     .hero-txt .caractor02 {
         top: 14.7%;
         left: 94%;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-txt p {
+        font-size: 120px;
     }
 }
 
