@@ -12,13 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <body>
     <div id="wrap">
@@ -31,25 +32,71 @@
                         <span class="logo-txt">ANGRY POTATO</span>
                     </a>
                 </h1>
-                <ul class="gnb-menu">
-                    <li class="active"><a href="#story">OUR STORY</a></li>
-                    <li class="active"><a href="#corevalue">WHY US?</a></li>
-                    <li class="active"><a href="#signature">SIGNITURES</a></li>
-                    <li class="active"><a href="#global">GLOBAL GROWTH</a></li>
-                </ul>
-            </div>
-        </header>
 
-        <main>
+                <!-- pc메뉴 -->
+                <ul class="gnb-menu">
+                    <li><a href="#story">OUR STORY</a></li>
+                    <li><a href="#corevalue">WHY US?</a></li>
+                    <li><a href="#signature">SIGNITURES</a></li>
+                    <li><a href="#global">GLOBAL GROWTH</a></li>
+                </ul>
+
+                <!-- 햄버거 버튼 -->
+                <button class="menu-btn" aria-label="메뉴 열기">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- 모바일메뉴 -->
             <nav class="mo-nav">
                 <ul class="menu-wrap">
-                    <li class="active"><a href="#story">OUR STORY</a></li>
-                    <li class="active"><a href="#corevalue">WHY US?</a></li>
-                    <li class="active"><a href="#signature">SIGNATURES</a></li>
-                    <li class="active"><a href="#global">GLOBAL GROWTH</a></li>
+                    <li><a href="#story">OUR STORY</a></li>
+                    <li><a href="#corevalue">WHY US?</a></li>
+                    <li><a href="#signature">SIGNATURES</a></li>
+                    <li><a href="#global">GLOBAL GROWTH</a></li>
                 </ul>
-            </nav> 
-            
+            </nav>
+        </header>
+
+        <script>
+            // ==========================
+            // Mobile Navigation
+            // ==========================
+
+            // 요소 선택
+            const menuBtn = document.querySelector(".menu-btn");
+            const moNav = document.querySelector(".mo-nav");
+            const menuLinks = document.querySelectorAll(".menu-wrap a");
+
+            // 햄버거 버튼 클릭
+            menuBtn.addEventListener("click", () => {
+                menuBtn.classList.toggle("is-open");
+                moNav.classList.toggle("is-open");
+                document.body.classList.toggle("no-scroll");
+            });
+
+            // 모바일 메뉴 클릭 시 자동 닫기
+            menuLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    menuBtn.classList.remove("is-open");
+                    moNav.classList.remove("is-open");
+                    document.body.classList.remove("no-scroll");
+                });
+            });
+
+            // PC 화면으로 변경되면 모바일 메뉴 초기화
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 767) {
+                    menuBtn.classList.remove("is-open");
+                    moNav.classList.remove("is-open");
+                    document.body.classList.remove("no-scroll");
+                }
+            });
+        </script>
+
+        <main> 
            <div class="sec-wrap">
                 <!-- hero-sec -->
                 <section class="hero-sec">
@@ -457,7 +504,7 @@
                 window.addEventListener("scroll", () => {
 
                     const scrollY = window.scrollY;
-                    const headerHeight = document.querySelector("header").offsetHeight;
+                    const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-height"));
 
                     let currentId = "";
 
@@ -480,43 +527,6 @@
                         }
 
                     });
-
-                });
-
-
-                const menuWrap = document.querySelector(".menu-wrap");
-
-                function toggleMobileMenu() {
-
-                    // 500px 초과면 항상 숨김
-                    if (window.innerWidth > 500) {
-                        menuWrap.classList.remove("show");
-                        return;
-                    }
-
-                    // 500px 이하에서 스크롤 시 표시
-                    if (window.scrollY > 10) {
-                        menuWrap.classList.add("show");
-                    } else {
-                        menuWrap.classList.remove("show");
-                    }
-
-                }
-
-                // 스크롤
-                window.addEventListener("scroll", toggleMobileMenu);
-
-                // 리사이즈
-                window.addEventListener("resize", toggleMobileMenu);
-
-                // 처음 로드될 때도 실행
-                toggleMobileMenu();
-
-                window.addEventListener("resize", () => {
-
-                    if (window.innerWidth > 500) {
-                        menuWrap.classList.remove("show");
-                    }
 
                 });
 
