@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>angry potato </title>
 
-    <link rel="stylesheet" href="../css/default.css">
+    <meta name="author" content="ANGRY POTATO">
+    <meta name="description" content="평범한 감자튀김을 넘어, 취향대로 완성하는 특별한 메뉴. 국내산 NON-GMO 생감자와 다양한 소스, 토핑으로 나만의 감자 메뉴를 즐겨보세요.">
+    <meta name="keywords" content="ANGRY POTATO, 앵그리포테이토, 감자튀김, 프렌치프라이, 커스터마이징, 생감자, 캐주얼 패스트푸드, 글로벌 프랜차이즈">
+    <meta name="classification" content="글로벌 캐주얼 패스트푸드 브랜드">
 
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ANGRY POTATO">
+    <meta property="og:description" content="MY STYLE, MY POTATO. 취향대로 완성하는 나만의 특별한 메뉴를 만들어보세요.">
+    <meta property="og:url" content="https://angrypotato.com/index.php">
+    <meta property="og:image" content="img/cta-sec-bg.webp">
+
+    <link rel="stylesheet" href="../css/default.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
@@ -21,7 +30,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-<body>
+<body id="top">
     <div id="wrap">
         <!-- header -->
         <header>
@@ -37,8 +46,9 @@
                 <ul class="gnb-menu">
                     <li><a href="#story">OUR STORY</a></li>
                     <li><a href="#corevalue">WHY US?</a></li>
-                    <li><a href="#signature">SIGNITURES</a></li>
+                    <li><a href="#signature">SIGNATURE</a></li>
                     <li><a href="#global">GLOBAL GROWTH</a></li>
+                    <li><a href="#partnership">partnership</a></li>
                 </ul>
 
                 <!-- 햄버거 버튼 -->
@@ -54,8 +64,9 @@
                 <ul class="menu-wrap">
                     <li><a href="#story">OUR STORY</a></li>
                     <li><a href="#corevalue">WHY US?</a></li>
-                    <li><a href="#signature">SIGNATURES</a></li>
+                    <li><a href="#signature">SIGNATURE</a></li>
                     <li><a href="#global">GLOBAL GROWTH</a></li>
+                    <li><a href="#partnership">partnership</a></li>
                 </ul>
             </nav>
         </header>
@@ -96,7 +107,15 @@
             });
         </script>
 
-        <main> 
+        <main>
+            <ul class="quick-menu">
+                <li><a href="#story">OUR STORY</a></li>
+                <li><a href="#corevalue">WHY US?</a></li>
+                <li><a href="#signature">SIGNATURE</a></li>
+                <li><a href="#global">GLOBAL GROWTH</a></li>
+                <li><a href="#partnership">partnership</a></li>
+            </ul>
+
            <div class="sec-wrap">
                 <!-- hero-sec -->
                 <section class="hero-sec">
@@ -365,7 +384,7 @@
                     </div>
 
                     <!-- Step List -->
-                    <ol class="step-list" data-aos="fade-up" data-aos-delay="450">
+                    <ol class="step-list" data-aos="fade-up" data-aos-delay="400">
                         <li>
                             <span class="step-num">01</span>
                             <span class="step-title">PICK THE CRUNCH</span>
@@ -492,27 +511,145 @@
             <!-- cta-sec -->
             <section class="cta-sec" id="cta">
                 <div class="inner">
-                    <h2 data-aos="fade-up">BRING KOREAN POTATO CULTURE<br>TO THE WORLD.</h2>
-                    <a href="#contact" class="cta-btn" data-aos="zoom-in" data-aos-delay="250">
+                    <h2 data-aos="fade-up">
+                        BRING KOREAN POTATO CULTURE<br>
+                        TO THE WORLD.
+                    </h2>
+                    <!-- 버튼 -->
+                    <button
+                        type="button"
+                        class="cta-btn"
+                        id="openInquiry"
+                        data-aos="zoom-in"
+                        data-aos-delay="250">
                         WOULD YOU LIKE TO JOIN US?
-                    </a>
+                    </button>
                 </div>
             </section>
 
+            <div class="inquiry-modal" id="inquiryModal">
+                <!-- 배경 -->
+                <div class="modal-overlay"></div>
+                <!-- 팝업 -->
+                <div class="modal-wrap">
+                    <!-- 닫기 -->
+                    <button
+                        type="button"
+                        class="modal-close"
+                        id="closeInquiry"
+                        aria-label="Close">
+                        <img src="img/icon-close.svg" alt="">
+                    </button>
+                    <!-- 왼쪽 -->
+                    <div class="modal-left">
+                        <div class="modal-left-inner">
+                            <span class="modal-subtitle">
+                                GLOBAL FRANCHISE PARTNERSHIP
+                            </span>
+                            <h3>
+                                Bring K-Potato Culture<br>To The World.
+                            </h3>
+                            <p>
+                                Join "ANGRY POTATO" as an exclusive franchise partner and introduce Korea's next fast-casual sensation to your market.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 오른쪽 -->
+                    <div class="modal-right">
+                        <form class="inquiry-form">
+                            <div class="form-item">
+                                <label for="company">Company</label>
+                                <input
+                                    type="text"
+                                    id="company"
+                                    placeholder="Company Name">
+                            </div>
+                            <div class="form-item">
+                                <label for="name">Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Your Name">
+                            </div>
+                            <div class="form-item">
+                                <label for="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Email Address">
+                            </div>
+                            <div class="form-item">
+                                <label for="phone">Phone</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    placeholder="Phone Number">
+                            </div>
+                            <div class="form-item">
+                                <label for="country">Country</label>
+                                <input
+                                    type="text"
+                                    id="country"
+                                    placeholder="Country">
+                            </div>
+                            <div class="form-item">
+                                <label for="message">Message</label>
+                                <textarea
+                                    id="message"
+                                    rows="5"
+                                    placeholder="Tell us about your business."></textarea>
+                            </div>
+                            <button
+                                type="submit"
+                                class="submit-btn">
+                                SEND INQUIRY
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             <script>
-                const menuItems = document.querySelectorAll(".gnb-menu li, .menu-wrap li");
-                const sections = document.querySelectorAll("#story, #corevalue, #signature, #global");
+                const header = document.querySelector("header");
+                const quickMenu = document.querySelector(".quick-menu");
+
+                const menuItems = document.querySelectorAll(
+                    ".gnb-menu li, .menu-wrap li, .quick-menu li"
+                );
+
+                const sections = document.querySelectorAll(
+                    "#story, #corevalue, #signature, #global, #partnership"
+                );
 
                 window.addEventListener("scroll", () => {
 
                     const scrollY = window.scrollY;
-                    const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-height"));
+
+                    // ==========================
+                    // Header / Quick Menu
+                    // ==========================
+                    if (scrollY > 100) {
+                        header.classList.add("hide");
+                        quickMenu.classList.add("show");
+                    } else {
+                        header.classList.remove("hide");
+                        quickMenu.classList.remove("show");
+                    }
+
+                    // ==========================
+                    // Active Menu
+                    // ==========================
+
+                    const trigger = 100; // 섹션 시작 120px 전에 active
 
                     let currentId = "";
 
                     sections.forEach((section) => {
 
-                        if (scrollY >= section.offsetTop - headerHeight - 20) {
+                        const sectionTop = section.offsetTop - trigger;
+                        const sectionBottom = sectionTop + section.offsetHeight;
+
+                        if (scrollY >= sectionTop && scrollY < sectionBottom) {
                             currentId = section.id;
                         }
 
@@ -520,17 +657,17 @@
 
                     menuItems.forEach((item) => {
 
-                        item.classList.remove("active");
+                        const href = item.querySelector("a").getAttribute("href");
 
-                        const link = item.querySelector("a");
-
-                        if (link.getAttribute("href") === "#" + currentId) {
-                            item.classList.add("active");
-                        }
+                        item.classList.toggle(
+                            "active",
+                            href === `#${currentId}`
+                        );
 
                     });
 
                 });
+
 
 
                 const list = document.querySelector('.corevalue-list');
@@ -686,6 +823,38 @@
                     partnershipObserver.observe(item);
                 });
 
+
+
+                const openInquiry = document.getElementById("openInquiry");
+                const closeInquiry = document.getElementById("closeInquiry");
+                const inquiryModal = document.getElementById("inquiryModal");
+                const modalOverlay = document.querySelector(".modal-overlay");
+
+                // 열기
+                openInquiry.addEventListener("click", () => {
+                    inquiryModal.classList.add("is-open");
+                    document.body.style.overflow = "hidden";
+                });
+
+                // 닫기(X)
+                closeInquiry.addEventListener("click", closeModal);
+
+                // 배경 클릭 닫기
+                modalOverlay.addEventListener("click", closeModal);
+
+                // ESC 닫기
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape" && inquiryModal.classList.contains("is-open")) {
+                        closeModal();
+                    }
+                });
+
+                // 닫기 함수
+                function closeModal() {
+                    inquiryModal.classList.remove("is-open");
+                    document.body.style.overflow = "";
+                }
+
             </script>
         </main>
        
@@ -699,15 +868,15 @@
                     <address class="footer-ceo">
                         <span>Snactory Co., Ltd</span>
                         <div class="ceo-wrap">
-                            <span>CEO : HyungJae Lim</span>
-                            <a href="mailto:mbrocompany@gmail.com">mbrocompany@gmail.com</a>
+                            <span>CEO : gildong Hong</span>
+                            <a href="yxxjihyexn@gmail.com">yxxjihyexn@gmail.com</a>
                         </div>
                     </address>
                     <p class="footer-address">
-                        Address : Snactory Bldg., 10-1, Dangsan-ro 40-gil, Yeongdeungpo-gu, Seoul, Republic of Korea
+                        Address : Yeongdeungpo-gu, Seoul, Republic of Korea
                     </p>
                     <p class="copyright">
-                        Copyright &copy; ANGRY POTATO. All Rights Reserved.
+                        Copyright &copy; 2026 ANGRY POTATO Redesign Concept. 본 사이트는 학습 목적의 리디자인 연습작으로, 해당 브랜드와 무관합니다.
                     </p>
                 </div>
                 <div class="footer-logo" aria-hidden="true"  data-aos="fade-left" data-aos-delay="150">
@@ -718,20 +887,26 @@
             </div>
         </footer>
 
-        <!-- chatbot -->
-        <div class="chatbot">
+        <div class="floating-menu">
+            <!-- top button -->
+            <a href="#top" class="top-btn" aria-label="맨 위로">
+                <img class="topbtn" src="img/icon-topbtn-1.svg" alt="">
+            </a>
+            
+            <!-- chatbot -->
+            <div class="chatbot">
+                <!-- Floating Button -->
+                <button class="chatbot-btn" type="button" aria-label="챗봇 열기">
+                    <img class="chatbot-icon icon-default" src="img/icon-logo-default.svg" alt="">
+                    <img class="chatbot-icon icon-hover" src="img/icon-logo-hover.svg" alt="" aria-hidden="true">
+                </button>
 
-            <!-- Floating Button -->
-            <button class="chatbot-btn" type="button" aria-label="챗봇 열기">
-                <img class="chatbot-icon icon-default" src="img/icon-logo-default.svg" alt="">
-                <img class="chatbot-icon icon-hover" src="img/icon-logo-hover.svg" alt="" aria-hidden="true">
-            </button>
+                <!-- Widget -->
+                <div class="chatbot-widget">
+                    <img src="img/chatbot01.png" alt="ANGRY POTATO 챗봇">
+                </div>
 
-            <!-- Widget -->
-            <div class="chatbot-widget">
-                <img src="img/chatbot01.png" alt="ANGRY POTATO 챗봇">
             </div>
-
         </div>
 
         <script>
