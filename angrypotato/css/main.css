@@ -635,7 +635,7 @@ header {
     color: var(--color-navy-500);
 }
 .brand-desc span {
-    display: block;
+    display: inline-block;
 }
 .brand-list {
     display: grid;
@@ -741,6 +741,9 @@ header {
 @media (max-width: 360px) {
     .brand-sec {
         padding: 40px 0;
+    }
+    .brand-desc span:nth-child(2) {
+        display: none;
     }
 }
 
@@ -1924,8 +1927,8 @@ header {
     flex:1;
 
     display:flex;
+    flex-direction: column;
     justify-content:center;
-    align-items:center;
 
     padding:60px;
 
@@ -1935,16 +1938,13 @@ header {
 
     color:var(--color-white);
 }
-.modal-left-inner{
-    max-width:420px;
-}
 .modal-subtitle{
     display:block;
-
     margin-bottom:20px;
 
     font-family: "barlow", sans-serif;
     font-size:14px;
+    font-weight: 600;
     letter-spacing: 0.05em;
 
     color:rgba(255,255,255,.75);
@@ -1952,14 +1952,14 @@ header {
 .modal-left h3{
     margin-bottom:28px;
 
-    font-size: 46px;
+    font-size:clamp(40px, 3.2vw, 60px);
     letter-spacing: 0.03em;
-    /* font-size:clamp(38px,2.5vw,58px); */
     line-height:1;
 }
 .modal-left p{
     font-family: "barlow", sans-serif;
     font-size:18px;
+    font-weight: 400;
     line-height:1.5;
 
     color:rgba(255,255,255,.8);
@@ -1984,7 +1984,6 @@ header {
 }
 .form-item label{
     font-size:16px;
-    font-weight:600;
     letter-spacing: 0.05em;
     color:var(--color-black);
 }
@@ -2001,7 +2000,6 @@ header {
 }
 .form-item textarea{
     resize:none;
-    min-height:160px;
 }
 .form-item input:focus,
 .form-item textarea:focus{
@@ -2017,7 +2015,6 @@ header {
 
     color:#fff;
     font-size:18px;
-    font-weight:600;
     cursor:pointer;
     transition:.3s;
 }
@@ -2033,7 +2030,7 @@ header {
 
     color:#fff;
     font-size:18px;
-    font-weight:600;
+    letter-spacing: 0.05em;
     cursor:pointer;
     transition:.3s;
 }
@@ -2058,11 +2055,17 @@ header {
         width: calc(100% - 60px);
     }
     .modal-left{
-        min-height:280px;
-        padding:60px 40px;
+        padding: 48px 50px ;
+    }
+    .modal-left h3 {
+        margin-bottom: 0;
+        font-size: 50px;
+    }
+    .modal-left p {
+        display: none;
     }
     .modal-right{
-        padding:50px 40px;
+        padding: 46px 50px ;
     }
 }
 
@@ -2078,13 +2081,19 @@ header {
         border-radius:20px;
     }
     .modal-left{
-        padding:40px 24px;
-    }
-    .modal-right{
-        padding:40px 24px;
+        padding: 38px 40px;
     }
     .modal-left h3{
-        font-size:36px;
+        font-size: clamp(24px, 3.3vw + 12px, 36px);
+    }
+    .modal-subtitle {
+        margin-bottom: 14px;
+    }
+    .modal-right{
+        padding: 36px 40px;
+    }
+    .inquiry-form {
+        gap: 22px;
     }
 }
 
@@ -2098,7 +2107,26 @@ header {
     .cta-sec .inner h2 br {
         display: block;
     }
+    .modal-left {
+        padding: 28px 30px;
+    }
+    .modal-right {
+        padding: 26px 30px;
+    }
+    .inquiry-form {
+        gap: 18px;
+    }
 }
+
+@media (max-width: 360px) {
+    .modal-left {
+        padding: 18px 20px;
+    }
+    .modal-right {
+        padding: 16px 20px;
+    }
+}
+
 
 
 
