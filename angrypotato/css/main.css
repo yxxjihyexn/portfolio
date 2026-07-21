@@ -557,7 +557,12 @@ header {
     .hero-txt p {
         font-size: 120px;
     }
+    .hero-txt .caractor01,
+    .hero-txt .caractor02 {
+        width: 70px;
+    }
 }
+
 
 
 /* brand-sec */
