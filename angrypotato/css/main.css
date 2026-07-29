@@ -62,14 +62,18 @@ section{
 
 /* header */
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
 
     width: 100%;
     height:var(--header-height);
     background-color: var(--color-orange-200);
+    transition:transform .35s ease;
     z-index: 1000;
+}
+header.hide{
+    transform: translateY(-100%);
 }
 .inner {
     width: min(1800px, calc(100% - 120px));
@@ -152,8 +156,8 @@ header {
 
     opacity: 0;
     visibility: hidden;
-    transition: .1s;
-    z-index: 1000;
+    transition: .3s;
+    z-index: 1100;
 }
 .quick-menu.show{
     opacity: 1;
